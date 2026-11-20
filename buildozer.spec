@@ -1,25 +1,21 @@
 [app]
 
-title = Buscador Convenios
-
+title = Buscador
 package.name = buscador
-
-package.domain = org.buscador
+package.domain = org.ejemplo
 
 source.dir = .
-
-source.include_exts = py,json,txt
+source.include_exts = py,txt,png,jpg,kv
 
 version = 1.0
 
-requirements = python3,kivy
+requirements = python3
 
 orientation = portrait
 
 fullscreen = 0
 
-android.permissions = READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE
-
 [buildozer]
 
 log_level = 2
+warn_on_root = 1
