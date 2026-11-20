@@ -10,37 +10,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: |
-          sudo apt update
-          sudo apt install -y \
+          sudo apt-get update
+          sudo apt-get install -y \
             git zip unzip openjdk-17-jdk \
             autoconf automake libtool pkg-config \
             zlib1g-dev libncurses5-dev \
-            libncursesw5-dev cmake libffi-dev \
-            libssl-dev
+            libncursesw5-dev cmake libffi-dev libssl-dev
 
-      - name: Install Buildozer
+      - name: Instalar Buildozer
         run: |
           python -m pip install --upgrade pip
           pip install buildozer cython
 
-      - name: Accept Android licenses
+      - name: Crear licencias Android
         run: |
           mkdir -p ~/.android
-          echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ~/.android/repositories.cfg
-          yes | buildozer android update
+          echo "24333f8a63b6825ea9c5514f83c2829b004d1fee" > ~/.android/repositories.cfg
+          mkdir -p ~/.buildozer/android/platform/android-sdk/licenses
+          echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
 
-      - name: Build APK
+      - name: Compilar APK
         run: |
           buildozer android debug
 
-      - name: Upload APK
+      - name: Subir APK
         uses: actions/upload-artifact@v4
         with:
           name: android-apk
