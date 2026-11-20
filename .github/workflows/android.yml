@@ -14,7 +14,20 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y python3-pip zip unzip openjdk-17-jdk
+          sudo apt install -y \
+            python3-pip \
+            zip \
+            unzip \
+            openjdk-17-jdk \
+            git \
+            autoconf \
+            libtool \
+            pkg-config \
+            zlib1g-dev \
+            libncurses5-dev \
+            libncursesw5-dev \
+            cmake
+
           pip3 install --upgrade pip
           pip3 install buildozer cython
 
