@@ -9,9 +9,12 @@ source.include_exts = py,txt,png,jpg,kv
 
 version = 1.0
 
-requirements = python3
+requirements = python3,kivy
 
 orientation = portrait
+
+android.api = 34
+android.minapi = 21
 
 fullscreen = 0
 
